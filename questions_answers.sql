@@ -522,13 +522,13 @@ FROM
     JOIN sales s ON p.product_id = s.product_id
 WHERE
     extract(YEAR FROM s.sale_date) = 2023
-    -- 47. Write a query to find the products that have not been sold in the last 6 months.
-    SELECT
+-- 47. Write a query to find the products that have not been sold in the last 6 months.
+SELECT
         p.product_id,
         p.product_name
-    FROM
+FROM
         products p
-    WHERE
+WHERE
         p.product_id NOT IN (
             SELECT
                 s.product_id
