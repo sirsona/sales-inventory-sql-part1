@@ -324,6 +324,18 @@ GROUP BY
     s.customer_id
 ORDER BY
     total_spent DESC;
+   -- alternative using extract year
+SELECT
+    s.customer_id,
+    SUM(s.total_amount) AS total_spent
+FROM
+    sales s
+WHERE
+    EXTRACT(YEAR FROM s.sale_date) = 2023
+GROUP BY
+    s.customer_id
+ORDER BY
+    total_spent DESC;
 
 -- 33. Write a query to find all products that have been sold but have less than 5 units left in stock.
 SELECT
